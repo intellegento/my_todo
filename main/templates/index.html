@@ -31,8 +31,13 @@
                 <div class="todo_item__footer">
                     <p>3.11.2021 <span>20:00</span></p>
                     <div class="action_buttom">
-                        <img src="./src/trash-solid.svg" alt="Delete">
-                        <img src="./src/star-regular.svg" alt="Importance">
+                        {% if todo.is_favorite %}
+                            <a href="{% url 'mark-todo' todo.id %}"><img src="{% static './src/star-regular.svg' %}" /></a>
+                        {% else %}
+                            <a href="{% url 'mark-todo' todo.id %}"><img src="{% static './src/star-solid.svg' %}" /></a>
+                        {% endif %}
+                        
+                        <a href="{% url 'delete-todo' todo.id %}"><img src="{% static './src/trash-solid' %}" /></a>
                     </div>
                 </div>
             </div>
@@ -48,8 +53,13 @@
                 <div class="todo_item__footer">
                     <p>3.11.2021 <span>20:00</span></p>
                     <div class="action_buttom">
-                        <img src="./src/trash-solid.svg" alt="Delete">
-                        <img src="./src/star-regular.svg" alt="Importance">
+                        {% if todo.is_favorite %}
+                            <a href="{% url 'mark-todo' todo.id %}"><img src="{% static './src/star-regular.svg' %}" /></a>
+                        {% else %}
+                            <a href="{% url 'mark-todo' todo.id %}"><img src="{% static './src/star-solid.svg' %}" /></a>
+                        {% endif %}
+                        
+                        <a href="{% url 'delete-todo' todo.id %}"><img src="{% static './src/trash-solid' %}" /></a>
                     </div>
                 </div>
             </div>
@@ -65,8 +75,13 @@
                 <div class="todo_item__footer">
                     <p>3.11.2021 <span>20:00</span></p>
                     <div class="action_buttom">
-                        <img src="./src/trash-solid.svg" alt="Delete">
-                        <img src="./src/star-solid.svg" alt="Importance">
+                        {% if todo.is_favorite %}
+                            <a href="{% url 'mark-todo' todo.id %}"><img src="{% static './src/star-regular.svg' %}" /></a>
+                        {% else %}
+                            <a href="{% url 'mark-todo' todo.id %}"><img src="{% static './src/star-solid.svg' %}" /></a>
+                        {% endif %}
+                        
+                        <a href="{% url 'delete-todo' todo.id %}"><img src="{% static './src/trash-solid' %}" /></a>
                     </div>
                 </div>
             </div>
@@ -82,8 +97,13 @@
                 <div class="todo_item__footer">
                     <p>3.11.2021 <span>20:00</span></p>
                     <div class="action_buttom">
-                        <img src="./src/trash-solid.svg" alt="Delete">
-                        <img src="./src/star-regular.svg" alt="Importance">
+                        {% if todo.is_favorite %}
+                            <a href="{% url 'mark-todo' todo.id %}"><img src="{% static './src/star-regular.svg' %}" /></a>
+                        {% else %}
+                            <a href="{% url 'mark-todo' todo.id %}"><img src="{% static './src/star-solid.svg' %}" /></a>
+                        {% endif %}
+                        
+                        <a href="{% url 'delete-todo' todo.id %}"><img src="{% static './src/trash-solid' %}" /></a>
                     </div>
                 </div>
             </div>
@@ -99,8 +119,13 @@
                 <div class="todo_item__footer">
                     <p>3.11.2021 <span>20:00</span></p>
                     <div class="action_buttom">
-                        <img src="./src/trash-solid.svg" alt="Delete">
-                        <img src="./src/star-regular.svg" alt="Importance">
+                        {% if todo.is_favorite %}
+                            <a href="{% url 'mark-todo' todo.id %}"><img src="{% static './src/star-regular.svg' %}" /></a>
+                        {% else %}
+                            <a href="{% url 'mark-todo' todo.id %}"><img src="{% static './src/star-solid.svg' %}" /></a>
+                        {% endif %}
+                        
+                        <a href="{% url 'delete-todo' todo.id %}"><img src="{% static './src/trash-solid' %}" /></a>
                     </div>
                 </div>
             </div>

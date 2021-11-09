@@ -83,7 +83,8 @@ section {
  }
 
  .todo_item__header h4{
-     font-size: 18px;
+     font-size: 10px;
+     text-transform: uppercase;
  }
 
  .todo_item__footer, .action_buttom {
