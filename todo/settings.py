@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'main',
-    'phone_field',
+    'tomeet',
 ]
 
 MIDDLEWARE = [

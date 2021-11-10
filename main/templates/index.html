@@ -23,7 +23,7 @@
             <div class="todo_item">
                 <div class="todo_item__header">
                     <label class="container">
-                        <input type="checkbox" checked="checked">
+                        <input type="checkbox">
                         <span class="checkmark"></span>
                     </label>
                     <h4>Купить молоко</h4>
@@ -31,13 +31,8 @@
                 <div class="todo_item__footer">
                     <p>3.11.2021 <span>20:00</span></p>
                     <div class="action_buttom">
-                        {% if todo.is_favorite %}
-                            <a href="{% url 'mark-todo' todo.id %}"><img src="{% static './src/star-regular.svg' %}" /></a>
-                        {% else %}
-                            <a href="{% url 'mark-todo' todo.id %}"><img src="{% static './src/star-solid.svg' %}" /></a>
-                        {% endif %}
-                        
-                        <a href="{% url 'delete-todo' todo.id %}"><img src="{% static './src/trash-solid' %}" /></a>
+                        <img src="./src/trash-solid.svg" alt="Delete">
+                        <img src="./src/star-regular.svg" alt="Importance">
                     </div>
                 </div>
             </div>
@@ -53,13 +48,8 @@
                 <div class="todo_item__footer">
                     <p>3.11.2021 <span>20:00</span></p>
                     <div class="action_buttom">
-                        {% if todo.is_favorite %}
-                            <a href="{% url 'mark-todo' todo.id %}"><img src="{% static './src/star-regular.svg' %}" /></a>
-                        {% else %}
-                            <a href="{% url 'mark-todo' todo.id %}"><img src="{% static './src/star-solid.svg' %}" /></a>
-                        {% endif %}
-                        
-                        <a href="{% url 'delete-todo' todo.id %}"><img src="{% static './src/trash-solid' %}" /></a>
+                        <img src="./src/trash-solid.svg" alt="Delete">
+                        <img src="./src/star-regular.svg" alt="Importance">
                     </div>
                 </div>
             </div>
@@ -67,7 +57,7 @@
             <div class="todo_item mark">
                 <div class="todo_item__header">
                     <label class="container">
-                        <input type="checkbox" checked="checked">
+                        <input type="checkbox">
                         <span class="checkmark"></span>
                     </label>
                     <h4>Купить молоко</h4>
@@ -75,13 +65,8 @@
                 <div class="todo_item__footer">
                     <p>3.11.2021 <span>20:00</span></p>
                     <div class="action_buttom">
-                        {% if todo.is_favorite %}
-                            <a href="{% url 'mark-todo' todo.id %}"><img src="{% static './src/star-regular.svg' %}" /></a>
-                        {% else %}
-                            <a href="{% url 'mark-todo' todo.id %}"><img src="{% static './src/star-solid.svg' %}" /></a>
-                        {% endif %}
-                        
-                        <a href="{% url 'delete-todo' todo.id %}"><img src="{% static './src/trash-solid' %}" /></a>
+                        <img src="./src/trash-solid.svg" alt="Delete">
+                        <img src="./src/star-regular.svg" alt="Importance">
                     </div>
                 </div>
             </div>
@@ -89,7 +74,7 @@
             <div class="todo_item">
                 <div class="todo_item__header">
                     <label class="container">
-                        <input type="checkbox" checked="checked">
+                        <input type="checkbox">
                         <span class="checkmark"></span>
                     </label>
                     <h4>Купить молоко</h4>
@@ -97,13 +82,8 @@
                 <div class="todo_item__footer">
                     <p>3.11.2021 <span>20:00</span></p>
                     <div class="action_buttom">
-                        {% if todo.is_favorite %}
-                            <a href="{% url 'mark-todo' todo.id %}"><img src="{% static './src/star-regular.svg' %}" /></a>
-                        {% else %}
-                            <a href="{% url 'mark-todo' todo.id %}"><img src="{% static './src/star-solid.svg' %}" /></a>
-                        {% endif %}
-                        
-                        <a href="{% url 'delete-todo' todo.id %}"><img src="{% static './src/trash-solid' %}" /></a>
+                        <img src="./src/trash-solid.svg" alt="Delete">
+                        <img src="./src/star-regular.svg" alt="Importance">
                     </div>
                 </div>
             </div>
@@ -119,13 +99,8 @@
                 <div class="todo_item__footer">
                     <p>3.11.2021 <span>20:00</span></p>
                     <div class="action_buttom">
-                        {% if todo.is_favorite %}
-                            <a href="{% url 'mark-todo' todo.id %}"><img src="{% static './src/star-regular.svg' %}" /></a>
-                        {% else %}
-                            <a href="{% url 'mark-todo' todo.id %}"><img src="{% static './src/star-solid.svg' %}" /></a>
-                        {% endif %}
-                        
-                        <a href="{% url 'delete-todo' todo.id %}"><img src="{% static './src/trash-solid' %}" /></a>
+                        <img src="./src/trash-solid.svg" alt="Delete">
+                        <img src="./src/star-regular.svg" alt="Importance">
                     </div>
                 </div>
             </div>
@@ -133,7 +108,7 @@
             <div class="todo_item mark">
                 <div class="todo_item__header">
                     <label class="container">
-                        <input type="checkbox" checked="checked">
+                        <input type="checkbox">
                         <span class="checkmark"></span>
                     </label>
                     <h4>Купить молоко</h4>
