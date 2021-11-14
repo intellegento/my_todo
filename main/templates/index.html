@@ -2,127 +2,64 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ToDo</title>
-    <!-- <link rel="stylesheet" href="./style/style.css"> -->
-    <link rel="stylesheet" href="{% static 'style/style.css' %}">
-    <link rel="stylesheet" href="{% static 'style/checkbox.css' %}">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Test</title>
+        <link rel="stylesheet" href="{% static 'style/style.css' %}">
+        <link rel="stylesheet" href="{% static 'style/checkbox.css' %}">
+    </head>
+
 <body>
     <section>
         <div class="create_container">
+           <form action="{% url 'add-todo' %}" method="POST">
+               {% csrf_token %}
             <input type="text"
             class="create_input"
-            placeholder="Введите задачу">
+            placeholder="Введите задачу"
+            name="todo_text"
+            />
             <button class="create_btn">Добавить</button>
+           </form>
         </div>
         <div class="todo_container">
-            <div class="todo_item">
-                <div class="todo_item__header">
-                    <label class="container">
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
-                    <h4>Купить молоко</h4>
-                </div>
-                <div class="todo_item__footer">
-                    <p>3.11.2021 <span>20:00</span></p>
-                    <div class="action_buttom">
-                        <img src="./src/trash-solid.svg" alt="Delete">
-                        <img src="./src/star-regular.svg" alt="Importance">
+            {% for todo in todo_list %}
+            <div class="todo_item
+            {% if todo.is_favorite %}
+                marked
+            {% elif todo.is_closed %}
+                done
+            {% endif %}
+        
+        ">
+                    <div class="todo_item__header">
+                        <label class="container">
+                            <input type="checkbox"
+                                {% if todo.is_closed %}
+                                    checked
+                                {% endif %}
+                             />
+                            <span class="checkmark"></span>
+                        </label>
+                        <h4><a href="{% url 'close-todo' todo.id %}"></a>{{ todo.text }}</h4>
+                    </div>
+                    <div class="todo_item__footer">
+                        <p>{{ todo.created_at }}</p>
+                        <div class="action_buttom">
+                            {% if todo.is_favorite %}
+                                <img src="{% static './src/star-solid.svg' %}" alt="Importance">
+                            {% else %}
+                                <img src="{% static './src/star-regular.svg' %}" alt="Importance">
+                            {% endif %}
+                                <img src="{% static './src/trash-solid.svg' %}" alt="Delete">
+                        </div>
                     </div>
                 </div>
+                {% endfor %}
             </div>
-
-            <div class="todo_item done">
-                <div class="todo_item__header">
-                    <label class="container">
-                        <input type="checkbox" checked="checked">
-                        <span class="checkmark"></span>
-                    </label>
-                    <h4>Купить молоко</h4>
-                </div>
-                <div class="todo_item__footer">
-                    <p>3.11.2021 <span>20:00</span></p>
-                    <div class="action_buttom">
-                        <img src="./src/trash-solid.svg" alt="Delete">
-                        <img src="./src/star-regular.svg" alt="Importance">
-                    </div>
-                </div>
-            </div>
-
-            <div class="todo_item mark">
-                <div class="todo_item__header">
-                    <label class="container">
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
-                    <h4>Купить молоко</h4>
-                </div>
-                <div class="todo_item__footer">
-                    <p>3.11.2021 <span>20:00</span></p>
-                    <div class="action_buttom">
-                        <img src="./src/trash-solid.svg" alt="Delete">
-                        <img src="./src/star-regular.svg" alt="Importance">
-                    </div>
-                </div>
-            </div>
-
-            <div class="todo_item">
-                <div class="todo_item__header">
-                    <label class="container">
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
-                    <h4>Купить молоко</h4>
-                </div>
-                <div class="todo_item__footer">
-                    <p>3.11.2021 <span>20:00</span></p>
-                    <div class="action_buttom">
-                        <img src="./src/trash-solid.svg" alt="Delete">
-                        <img src="./src/star-regular.svg" alt="Importance">
-                    </div>
-                </div>
-            </div>
-
-            <div class="todo_item done">
-                <div class="todo_item__header">
-                    <label class="container">
-                        <input type="checkbox" checked="checked">
-                        <span class="checkmark"></span>
-                    </label>
-                    <h4>Купить молоко</h4>
-                </div>
-                <div class="todo_item__footer">
-                    <p>3.11.2021 <span>20:00</span></p>
-                    <div class="action_buttom">
-                        <img src="./src/trash-solid.svg" alt="Delete">
-                        <img src="./src/star-regular.svg" alt="Importance">
-                    </div>
-                </div>
-            </div>
-
-            <div class="todo_item mark">
-                <div class="todo_item__header">
-                    <label class="container">
-                        <input type="checkbox">
-                        <span class="checkmark"></span>
-                    </label>
-                    <h4>Купить молоко</h4>
-                </div>
-                <div class="todo_item__footer">
-                    <p>3.11.2021 <span>20:00</span></p>
-                    <div class="action_buttom">
-                        <img src="./src/trash-solid.svg" alt="Delete">
-                        <img src="./src/star-regular.svg" alt="Importance">
-                    </div>
-                </div>
-            </div>
-
-        </div>
     </section>
 </body>
+
 </html>

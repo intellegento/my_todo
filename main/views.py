@@ -3,13 +3,13 @@ from .models import ToDo
 from .models import ToMeet
 
 
-def homepage(request):
-    return render(request, "index.html")
-
-
 def test(request):
+    return render(request, "test.html")
+
+
+def homepage(request):
     todo_list = ToDo.objects.all()
-    return render(request, "test.html", {"todo_list": todo_list})
+    return render(request, "index.html", {"todo_list": todo_list})
 
 def tomeet(request):
     tomeet_list = ToMeet.objects.all()
@@ -26,32 +26,48 @@ def add_todo(request):
     text = form["todo_text"]
     todo = ToDo(text=text)
     todo.save()
-    return redirect(test)
-
-
-def delete_todo(request, id):
-    todo = ToDo.objects.get(id=id)
-    todo.delete()
-    return redirect(test)
-
-
-def mark_todo(request, id):
-    todo = ToDo.objects.get(id=id)
-    todo.is_favorite = True
-    todo.save()
-    return redirect(test)
-
-
-def close_todo(request, id):
-    todo = ToDo.objects.get(id=id)
-    todo.is_closed = not todo.is_closed
-    todo.save()
-    return redirect(test)
-
+    return redirect(homepage)
 
 def add_tomeet(request):
     form = request.POST
     person = form["tomeet_person"]
     to_meet = ToMeet(person=person)
     to_meet.save()
-    return redirect(to_meet)
+    return redirect(tomeet)
+
+ 
+
+
+def delete_todo(request, id):
+    todo = ToDo.objects.get(id=id)
+    todo.delete()
+    return redirect(homepage)
+
+
+def mark_todo(request, id):
+    todo = ToDo.objects.get(id=id)
+    todo.is_favorite = True
+    todo.save()
+    return redirect(homepage)
+
+
+def close_todo(request, id):
+    todo = ToDo.objects.get(id=id)
+    todo.is_closed = not todo.is_closed
+    todo.save()
+    return redirect(homepage)
+
+
+
+
+
+
+
+
+
+
+    # form = request.POST
+    # person = form["tomeet_person"]
+    # to_meet = ToMeet(person=person)
+    # to_meet.save()
+    # return redirect(to_meet)

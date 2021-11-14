@@ -22,6 +22,10 @@ section {
     font-size: 18px;
 }
 
+.create_input.tomeet {
+    width: 39%;
+}
+
 .create_btn {
     padding: 12px 20px;
     background-color: #c1c1c1;

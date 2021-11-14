@@ -17,10 +17,10 @@ def test(request):
 
 def add_tomeet(request):
     form = request.POST
-    text = form["tomeet_text"]
-    tomeet = ToMeet(text=text)
-    tomeet.save()
-    return redirect(test)
+    person = form["tomeet_person"]
+    to_meet = ToMeet(person=person)
+    to_meet.save()
+    return redirect(to_meet)
 
 
 def delete_tomeet(request, id):

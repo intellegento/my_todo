@@ -13,13 +13,25 @@
 <body>
     <section>
         <div class="create_container">
-            <input type="text"
-            class="create_input"
-            placeholder="Введите имя">
-            <button class="create_btn">Добавить</button>
+            <form action="{% url 'add-tomeet' %}" method="POST">
+                {% csrf_token %}
+                <input type="text"
+                    class="create_input tomeet"
+                    placeholder="Введите имя"
+                    name="tomeet_person"
+                />
+                {% csrf_token %}
+                <input type="phone"
+                    class="create_input tomeet"
+                    placeholder="Введите номер телефона"
+                    name="phone_number"
+                />
+                <button class="create_btn">Добавить</button>
+            </form>
         </div>
         <div class="todo_container">
             {% for tomeet in tomeet_list %}
+            
                 <div class="todo_item">
                     <div class="todo_item__header">
                         <label class="container">
