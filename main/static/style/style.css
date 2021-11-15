@@ -114,3 +114,33 @@ section {
      margin: 0 5px;
      cursor: pointer;
  }
+
+
+ .homework_links {
+     display: flex;
+     justify-content: center;
+     margin-top: 30px;
+ }
+
+ .homework_links button {
+     width: 100px;
+     height: 36px;
+     background-color: #c1c1c1;
+     font-size: 16px;
+     text-transform: uppercase;
+     margin: 0 20px;
+     border: solid 1px #757575;
+     transition: all .2s;
+ }
+
+ .homework_links button:hover {
+    width: 100px;
+    height: 40px;
+    background-color: #c1c1c1;
+ }
+
+ .homework_links button a {
+     text-decoration: none;
+     color: #000;
+ }
+ 
