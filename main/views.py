@@ -53,12 +53,35 @@ def delete_todo(request, id):
     todo.delete()
     return redirect(homepage)
 
+def delete_tomeet(request, id):
+    to_meet = ToMeet.objects.get(id=id)
+    to_meet.delete()
+    return redirect(tomeet)
+
 
 def mark_todo(request, id):
     todo = ToDo.objects.get(id=id)
     todo.is_favorite = True
     todo.save()
     return redirect(homepage)
+
+def mark_tomeet(request, id):
+    to_meet = ToMeet.objects.get(id=id)
+    to_meet.is_favorite = True
+    to_meet.save()
+    return redirect(tomeet)
+
+def unmark_todo(request, id):
+    todo = ToDo.objects.get(id=id)
+    todo.is_favorite = False
+    todo.save()
+    return redirect(homepage)
+
+def unmark_tomeet(request, id):
+    to_meet = ToMeet.objects.get(id=id)
+    to_meet.is_favorite = False
+    to_meet.save()
+    return redirect(tomeet)
 
 
 def close_todo(request, id):

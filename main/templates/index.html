@@ -28,7 +28,7 @@
             {% for todo in todo_list %}
             <div class="todo_item
             {% if todo.is_favorite %}
-                marked
+                mark
             {% elif todo.is_closed %}
                 done
             {% endif %}
@@ -49,11 +49,11 @@
                         <p>{{ todo.created_at }}</p>
                         <div class="action_buttom">
                             {% if todo.is_favorite %}
-                                <img src="{% static './src/star-solid.svg' %}" alt="Importance">
+                                <a href="{% url 'unmark-todo' todo.id %}"><img src="{% static './src/star-solid.svg' %}" alt="Importance"></a>
                             {% else %}
-                                <img src="{% static './src/star-regular.svg' %}" alt="Importance">
+                                <a href="{% url 'mark-todo' todo.id %}"><img src="{% static './src/star-regular.svg' %}" alt="Importance"></a>
                             {% endif %}
-                                <img src="{% static './src/trash-solid.svg' %}" alt="Delete">
+                                <a href="{% url 'delete-todo' todo.id %}"><img src="{% static './src/trash-solid.svg' %}" alt="Delete"></a>
                         </div>
                     </div>
                 </div>

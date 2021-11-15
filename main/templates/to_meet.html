@@ -24,7 +24,7 @@
                 <input type="phone"
                     class="create_input tomeet"
                     placeholder="Введите номер телефона"
-                    name="phone_number"
+                    name="tomeet_phone_number"
                 />
                 <button class="create_btn">Добавить</button>
             </form>
@@ -32,7 +32,14 @@
         <div class="todo_container">
             {% for tomeet in tomeet_list %}
             
-                <div class="todo_item">
+            <div class="todo_item
+            {% if tomeet.is_favorite %}
+                mark
+            {% elif tomeet.is_closed %}
+                done
+            {% endif %}
+        
+        ">
                     <div class="todo_item__header">
                         <label class="container">
                             <input type="checkbox" />
@@ -44,8 +51,12 @@
                     <div class="todo_item__footer">
                         <p>{{ tomeet.date_of_meeting }}</p>
                         <div class="action_buttom">
-                            <img src="{% static './src/trash-solid.svg' %}">
-                            <img src="{% static './src/star-regular.svg' %}">
+                            {% if tomeet.is_favorite %}
+                                <a href="{% url 'unmark-tomeet' tomeet.id %}"><img src="{% static './src/star-solid.svg' %}" alt="Importance"></a>
+                            {% else %}
+                                <a href="{% url 'mark-tomeet' tomeet.id %}"><img src="{% static './src/star-regular.svg' %}" alt="Importance"></a>
+                            {% endif %}
+                                <a href="{% url 'delete-tomeet' tomeet.id %}"><img src="{% static './src/trash-solid.svg' %}" alt="Delete"></a>
                         </div>
                     </div>
                 </div>

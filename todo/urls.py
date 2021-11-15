@@ -23,14 +23,24 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("", homepage, name="home"),
     path("test/", test, name="test"),
-    path("test2/", second),
     path("to_meet/", tomeet, name="tomeet"),
     path("habits/", habits, name="habits"),
+
     path("add-todo/", add_todo, name="add-todo"),
     path("add-tomeet/", add_tomeet, name="add-tomeet"),
     path("add-habits/", add_habits, name="add-habits"),
+
     path("delete-todo/<id>/", delete_todo, name="delete-todo"),
+    path("delete-tomeet/<id>/", delete_tomeet, name="delete-tomeet"),
+
     path("mark-todo/<id>/", mark_todo, name="mark-todo"),
+    path("mark-tomeet/<id>/", mark_tomeet, name="mark-tomeet"),
+
+    path("unmark-todo/<id>/", unmark_todo, name="unmark-todo"),
+    path("unmark-tomeet/<id>/", unmark_tomeet, name="unmark-tomeet"),
+
+
     path("close-todo/<id>/", close_todo, name="close-todo"),
+
 ]   + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
