@@ -14,12 +14,17 @@
 <body>
     <section>
         <div class="create_container">
-           <form action="{% url 'habits' %}" method="POST">
+           <form action="{% url 'add-habits' %}" method="POST">
                {% csrf_token %}
             <input type="text"
             class="create_input"
             placeholder="Привычки"
-            name="habit"
+            name="habits_name"
+            />
+            <input type="text"
+            class="create_input"
+            placeholder="комментарий"
+            name="comment"
             />
             <button class="create_btn">Добавить</button>
            </form>

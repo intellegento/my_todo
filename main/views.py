@@ -38,6 +38,13 @@ def add_tomeet(request):
     to_meet.save()
     return redirect(tomeet)
 
+def add_habits(request):
+    form = request.POST
+    name = form["habits_name"]
+    habits_name = Habits(name=name)
+    habits_name.save()
+    return redirect(habits)
+
  
 
 
