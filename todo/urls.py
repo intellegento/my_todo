@@ -32,15 +32,21 @@ urlpatterns = [
 
     path("delete-todo/<id>/", delete_todo, name="delete-todo"),
     path("delete-tomeet/<id>/", delete_tomeet, name="delete-tomeet"),
+    path("delete-habits/<id>/", delete_habits, name="delete-habits"),
+
 
     path("mark-todo/<id>/", mark_todo, name="mark-todo"),
     path("mark-tomeet/<id>/", mark_tomeet, name="mark-tomeet"),
+    path("mark-habits/<id>/", mark_habits, name="mark-habits"),
 
     path("unmark-todo/<id>/", unmark_todo, name="unmark-todo"),
     path("unmark-tomeet/<id>/", unmark_tomeet, name="unmark-tomeet"),
+    path("unmark-habits/<id>/", unmark_habits, name="unmark-habits"),
 
 
     path("close-todo/<id>/", close_todo, name="close-todo"),
+    path("close-tomeet/<id>/", close_tomeet, name="close-tomeet"),
+    path("close-habits/<id>/", close_habits, name="close-habits"),
 
 ]   + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) \
     + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -58,6 +58,11 @@ def delete_tomeet(request, id):
     to_meet.delete()
     return redirect(tomeet)
 
+def delete_habits(request, id):
+    to_habits = Habits.objects.get(id=id)
+    to_habits.delete()
+    return redirect(habits)
+
 
 def mark_todo(request, id):
     todo = ToDo.objects.get(id=id)
@@ -71,6 +76,12 @@ def mark_tomeet(request, id):
     to_meet.save()
     return redirect(tomeet)
 
+def mark_habits(request, id):
+    to_habits = Habits.objects.get(id=id)
+    to_habits.important = True
+    to_habits.save()
+    return redirect(habits)
+
 def unmark_todo(request, id):
     todo = ToDo.objects.get(id=id)
     todo.is_favorite = False
@@ -83,12 +94,30 @@ def unmark_tomeet(request, id):
     to_meet.save()
     return redirect(tomeet)
 
+def unmark_habits(request, id):
+    to_habits = Habits.objects.get(id=id)
+    to_habits.important = False
+    to_habits.save()
+    return redirect(habits)
+
 
 def close_todo(request, id):
     todo = ToDo.objects.get(id=id)
     todo.is_closed = not todo.is_closed
     todo.save()
     return redirect(homepage)
+
+def close_tomeet(request, id):
+    to_meet = ToMeet.objects.get(id=id)
+    to_meet.is_closed = not to_meet.is_closed
+    to_meet.save()
+    return redirect(tomeet)
+
+def close_habits(request, id):
+    to_habits = Habits.objects.get(id=id)
+    to_habits.done_for_today = not to_habits.done_for_today
+    to_habits.save()
+    return redirect(habits)
 
 
 

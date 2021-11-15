@@ -32,9 +32,9 @@
         <div class="todo_container">
             {% for habits in habits_list %}
             <div class="todo_item
-            {% if todo.is_favorite %}
-                marked
-            {% elif todo.is_closed %}
+            {% if habits.important %}
+                mark
+            {% elif habits.done_for_today %}
                 done
             {% endif %}
         
@@ -42,23 +42,23 @@
                     <div class="todo_item__header">
                         <label class="container">
                             <input type="checkbox"
-                                {% if todo.is_closed %}
+                                {% if habits.done_for_today %}
                                     checked
                                 {% endif %}
                              />
                             <span class="checkmark"></span>
                         </label>
-                        <h4></a>{{ habits.name }}</h4>
+                        <h4><a href="{% url 'close-habits' habits.id %}">{{ habits.name }}</a></h4>
                     </div>
                     <div class="todo_item__footer">
                         <p>{{ habits.comment }}</p>
                         <div class="action_buttom">
-                            {% if todo.is_favorite %}
-                                <img src="{% static './src/star-solid.svg' %}" alt="Importance">
+                            {% if habits.important %}
+                                <a href="{% url 'unmark-habits' habits.id %}"><img src="{% static './src/star-solid.svg' %}" alt="Importance"></a>
                             {% else %}
-                                <img src="{% static './src/star-regular.svg' %}" alt="Importance">
+                                <a href="{% url 'mark-habits' habits.id %}"><img src="{% static './src/star-regular.svg' %}" alt="Importance"></a>
                             {% endif %}
-                                <img src="{% static './src/trash-solid.svg' %}" alt="Delete">
+                                <a href="{% url 'delete-habits' habits.id %}"><img src="{% static './src/trash-solid.svg' %}" alt="Delete"></a>
                         </div>
                     </div>
                 </div>

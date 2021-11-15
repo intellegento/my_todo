@@ -42,10 +42,14 @@
         ">
                     <div class="todo_item__header">
                         <label class="container">
-                            <input type="checkbox" />
+                            <input type="checkbox"
+                            {% if todo.is_closed %}
+                                checked
+                            {% endif %}
+                         />
                             <span class="checkmark"></span>
                         </label>
-                        <h4>{{ tomeet.person }}</h4>
+                        <h4><a href="{% url 'close-tomeet' tomeet.id %}">{{ tomeet.person }}</a></h4>
                         <div class="todo_telnum">{{ tomeet.phone_number}}</div>
                     </div>
                     <div class="todo_item__footer">

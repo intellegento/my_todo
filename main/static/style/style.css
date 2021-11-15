@@ -89,6 +89,13 @@ section {
  .todo_item__header h4 {
      font-size: 18px;
      text-transform: uppercase;
+     
+ }
+
+ .todo_item__header h4 a{
+    text-decoration: none;
+     color: #000;
+
  }
 
  .todo_telnum {
