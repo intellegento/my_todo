@@ -14,3 +14,11 @@ class ToMeet(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     is_closed = models.BooleanField(default=False)
     is_favorite = models.BooleanField(default=False)
+
+
+
+class Habits(models.Model):
+    name = models.CharField(max_length=100)
+    comment = models.CharField(max_length=20)
+    done_for_today = models.BooleanField(default=False)
+    important = models.BooleanField(default=False)

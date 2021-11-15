@@ -1,6 +1,5 @@
 from django.shortcuts import render, HttpResponse, redirect
-from .models import ToDo
-from .models import ToMeet
+from .models import ToDo, ToMeet, Habits
 
 
 def test(request):
@@ -14,6 +13,10 @@ def homepage(request):
 def tomeet(request):
     tomeet_list = ToMeet.objects.all()
     return render(request, "to_meet.html", {"tomeet_list": tomeet_list})
+
+def habits(request):
+    habits_list = Habits.objects.all()
+    return render(request, "habits.html", {"habits_list": habits_list})
 
 
 
